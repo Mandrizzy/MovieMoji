@@ -38,8 +38,13 @@
 .carousel> .carousel-inner> .carousel-item >img {
  filter: brightness(25%);
 }
+
 .main-text{
   margin-top: 25rem;
+}
+
+.card-body, .card-footer{
+    text-align: center;
 }
 
 #button{

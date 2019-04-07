@@ -24,7 +24,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     
-      <a class="navbar-brand" href="#"><h3>MovieMoji</h3></a>
+      <a class="navbar-brand" href="/"><h3>MovieMoji</h3></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -32,13 +32,13 @@
           
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#">Home</a>
+                  <a class="nav-link active" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Sign up</a>
+                  <a class="nav-link" href="{% url 'register' %}">Sign up</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Sign in</a>
+                  <a class="nav-link" href="{% url 'login' %}">Sign in</a>
                 </li>    
               </ul>
             </div>
@@ -89,7 +89,7 @@
             <img src="https://aztecgold.net/wp-content/uploads/2018/11/Venom-600x900.jpg" width="310" height="400">
           </div>
           <div class="card-footer">
-            <a href="#loginmodal" class="btn btn-primary btn-sm" data-toggle="modal">Watch Now</a>
+            <a href="#loginmodal" class="btn btn-primary btn-sm text-center" data-toggle="modal">Watch Now</a>
           </div>
         </div>
       </div>
@@ -101,7 +101,7 @@
             <img src="https://contentserver.com.au/assets/652795_aquaman_v8.jpg" width="310" height="400" alt="">
           </div>
           <div class="card-footer">
-            <a href="#loginmodal" class="btn btn-primary btn-sm" data-toggle="modal">Watch Now</a>
+            <a href="#loginmodal" class="btn btn-primary btn-sm text-center" data-toggle="modal">Watch Now</a>
           </div>
         </div>
       </div>
@@ -110,10 +110,10 @@
         <div class="card h-100">
           <div class="card-body">
             <h2 class="card-title">Spider-Man</h2>
-            <img src="http://www.impawards.com/2017/posters/spiderman_homecoming_ver9_xlg.jpg" width="310" height="400" alt="">
+            <img src="https://is2-ssl.mzstatic.com/image/thumb/Video128/v4/46/3e/f7/463ef7f2-8049-d31e-a9ba-c39c028d744d/SPE_SPIDER-MAN_HOMECOMING_WW_ARTWORK_EN_2000x3000_ST4ZX000004GU.lsr/268x0w.jpg" width="310" height="400" alt="">
           </div>
           <div class="card-footer">
-            <a href="#loginmodal" class="btn btn-primary btn-sm" data-toggle="modal">Watch Now</a>
+            <a href="#loginmodal" class="btn btn-primary btn-sm text-center" data-toggle="modal">Watch Now</a>
           </div>
         </div>
       </div>
@@ -123,6 +123,51 @@
     <!-- /.row -->
 
   </div>
+
+   <div id="pagebody" class="container my-5">
+    <div id="pagebody" class="row">
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title">Avengers Infinity War</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/en/4/4d/Avengers_Infinity_War_poster.jpg" width="310" height="400">
+          </div>
+          <div class="card-footer">
+            <a href="#loginmodal" class="btn btn-primary btn-sm text-center" data-toggle="modal">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-4 -->
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title">Wonder Woman</h2>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_4OInMIWqz8WBaUEFQw_rQFLl2Q9B-FSpeDRSf04OZvudCuZi" width="310" height="400">
+          </div>
+          <div class="card-footer">
+            <a href="#loginmodal" class="btn btn-primary btn-sm text-center" data-toggle="modal">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-4 -->
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title">Justice League</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/en/3/31/Justice_League_film_poster.jpg" width="310" height="400" alt="">
+          </div>
+          <div class="card-footer">
+            <a href="#loginmodal" class="btn btn-primary btn-sm text-center" data-toggle="modal">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-4 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+
   <div id="about" class="container text-center my-5"><h1>Enjoy These & Other Movies</h1>
     <h4 class="my-5 text-left">Sign up now and get the first month free 10,000+ movies right at
        your finger tips. Find your favourite series movies & sitcoms, so 

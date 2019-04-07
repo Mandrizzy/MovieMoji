@@ -1,11 +1,11 @@
 #myFooter {
-    background-color: #3c3d41;
+    background-color: #394046; /*#3c3d41;*/
     color: white;
     padding-top: 30px;
 }
 
 #myFooter .footer-copyright {
-    background-color: #333333;
+    background-color: #24262c;
     padding-top: 3px;
     padding-bottom: 3px;
     text-align: center;
@@ -22,7 +22,7 @@
 
 #myFooter .footer-copyright p {
     margin: 10px;
-    color: #ccc;
+    color: white;
 }
 
 #myFooter ul {
