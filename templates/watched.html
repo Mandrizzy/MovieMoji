@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MovieMoji</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+	{% load static %}
+
+	<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+	<link rel="stylesheet" href="{% static 'css/Footer-with-button-logo.css' %}">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="{% static 'css/flexslider.css' %}">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	<!-- Modernizr JS -->
+	<script type='text/javascript' src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+	<nav class="fh5co-nav" role="navigation">
+		<div class="container-wrap">
+			<div class="top-menu">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="dashboard.html">MovieMoji</a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li><a href="dashboard.html">Home</a></li>
+							<li><a href="reccomend.html">Recommend</a></li>
+							<li class="has-dropdown active">
+								<a href="watched.html">Watched</a>
+								<!-- <ul class="dropdown">
+									<li><a href="#">Web Design</a></li>
+									<li><a href="#">eCommerce</a></li>
+									<li><a href="#">Branding</a></li>
+									<li><a href="#">API</a></li>
+								</ul> -->
+							</li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>
+	<div class="container-wrap">
+		<aside id="fh5co-hero">
+			<div class="flexslider">
+				<ul class="slides">
+			   	<li style="background-image: url(https://i.imgur.com/s2N5qst.jpg);">
+			   		<div class="overlay-gradient"></div>
+		   			<div class="row">
+			   			<div class="col-md-12 slider-text slider-text-bg">
+			   				<div class="slider-text-inner text-center">
+			   					<h1 id="reco">Recently Watched</h1>
+			   				</div>
+			   			</div>
+			   		</div>
+			   	</li>		   	
+			  	</ul>
+		  	</div>
+		</aside>		
+		<div id="fh5co-work">
+			<div class="row">
+				<div class="col-md-4 text-center animate-box fadeInUp animated-fast">
+					<a href="work-single.html" class="work" style="background-image: url(static/img/portfolio-1.jpg);">
+						<div class="desc">
+							<h3>Project Name</h3>
+							<span>Illustration</span>
+						</div>
+					</a>
+				</div>
+				<div class="col-md-4 text-center animate-box fadeInUp animated-fast">
+					<a href="work-single.html" class="work" style="background-image: url(static/img/portfolio-2.jpg);">
+						<div class="desc">
+							<h3>Project Name</h3>
+							<span>Brading</span>
+						</div>
+					</a>
+				</div>
+				<div class="col-md-4 text-center animate-box fadeInUp animated-fast">
+					<a href="work-single.html" class="work" style="background-image: url(static/img/portfolio-3.jpg);">
+						<div class="desc">
+							<h3>Project Name</h3>
+							<span>Illustration</span>
+						</div>
+					</a>
+				</div>
+				<div class="col-md-4 text-center animate-box fadeInUp animated-fast">
+					<a href="work-single.html" class="work" style="background-image: url(static/img/portfolio-4.jpg);">
+						<div class="desc">
+							<h3>Project Name</h3>
+							<span>Illustration</span>
+						</div>
+					</a>
+				</div>
+				<div class="col-md-4 text-center animate-box fadeInUp animated-fast">
+					<a href="work-single.html" class="work" style="background-image: url(static/img/portfolio-5.jpg);">
+						<div class="desc">
+							<h3>Project Name</h3>
+							<span>Brading</span>
+						</div>
+					</a>
+				</div>
+				<div class="col-md-4 text-center animate-box fadeInUp animated-fast">
+					<a href="work-single.html" class="work" style="background-image: url(static/img/portfolio-6.jpg);">
+						<div class="desc">
+							<h3>Project Name</h3>
+							<span>Illustration</span>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div><!-- END container-wrap -->
+
+
+	<footer id="myFooter">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3">
+						<h2 class="logo"><a href="#"> MovieMoji </a></h2>
+					</div>
+					<div class="col-sm-2">
+						<h5>Get started</h5>
+						<ul>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Sign up</a></li>
+							<li><a href="#">Downloads</a></li>
+						</ul>
+					</div>
+					<div class="col-sm-2">
+						<h5>About us</h5>
+						<ul>
+							<li><a href="#">Company Information</a></li>
+							<li><a href="#">Contact us</a></li>
+							<li><a href="#">Reviews</a></li>
+						</ul>
+					</div>
+					<div class="col-sm-2">
+						<h5>Support</h5>
+						<ul>
+							<li><a href="#">FAQ</a></li>
+							<li><a href="#">Help desk</a></li>
+							<li><a href="#">Forums</a></li>
+						</ul>
+					</div>
+					<div class="col-sm-3">
+						<div class="social-networks">
+							<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+							<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+							<a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+						</div>
+						<button type="button" class="btn btn-default">Contact us</button>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<p>© 2019 MovieMoji </p>
+			</div>
+		</footer>
+	
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script type='text/javascript' src="{% static 'js/jquery.min.js' %}"></script>
+	<!-- jQuery Easing -->
+	<script type='text/javascript' src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+	<!-- Bootstrap -->
+	<script type='text/javascript' src="{% static 'js/bootstrap.min.js' %}"></script>
+	<!-- Waypoints -->
+	<script type='text/javascript' src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+	<!-- Flexslider -->
+	<script type='text/javascript' src="{% static 'js/jquery.flexslider-min.js' %}"></script>
+	<!-- Magnific Popup -->
+	<script type='text/javascript' src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+
+	<script type='text/javascript' src="{% static 'js/magnific-popup-options.js' %}"></script>
+	<!-- Main -->
+	<script type='text/javascript' src="{% static 'js/main.js' %}"></script>
+
+
+	</body>
+</html>
+
