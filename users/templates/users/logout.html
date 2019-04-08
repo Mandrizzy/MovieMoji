@@ -15,7 +15,8 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/small-business.css" rel="stylesheet">
+    {% load static %}
+    <link href="{% static 'css/logout.css' %}" rel="stylesheet">
 </head>
 
 <body>
@@ -61,26 +62,3 @@
 </body>
 
 </html>
-
-<style>
-    body{
-        background-color: #0A0A0A;
-    }
-    h3{
-        color: #F0076C;
-    }
-    h2{
-        color: #F0076C;
-        font-weight: bold;
-    }
-    h5{
-        color:#F0076C;
-    }
-    a{
-        color: #F0076C;
-        font-weight: bold;
-    }
-    a:hover{
-        text-decoration: none;
-    }
-</style>
