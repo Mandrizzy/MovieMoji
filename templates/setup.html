@@ -8,14 +8,12 @@
     {% load static %}
     <!-- Bootstrap core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{% static 'css/Footer-with-button-logo.css' %}" />
     <link rel="stylesheet" href="{% static 'css/setup.css' %}" />
-    <link rel="stylesheet" href="{% static 'js/setup.js' %}" />
-
-
 </head>
 <body>
 
@@ -44,23 +42,55 @@
 <div class="container">
     <h1 class="greeting">Hello User, choose 3 movie genres you like.</h1><br>
 
-    <div class="col-xs-4 col-sm-3 col-md-2 nopad text-xs-center">
-        <label class="image-checkbox">
-            <img class="img-fluid" src="https://gracegibsonradio.com/wp-content/uploads/2016/03/comedy-drama-copy.jpg"/>
-            <input type="checkbox" name="image[]"/>
-        </label>
+    <div class="container">
+        <form method="POST" action="{% url 'post' %}">
+            {% csrf_token %}
+            <div class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                <label class="image-checkbox">
+                    <img class="img-responsive" src="https://dummyimage.com/600x400/000/fff" />
+                    <input type="checkbox" name="Action" value="1" />
+                    <i class="fa fa-check hidden"></i>
+                </label>
+            </div>
+            <div class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                <label class="image-checkbox">
+                    <img class="img-responsive" src="https://dummyimage.com/600x400/000/fff" />
+                    <input type="checkbox" name="Comedy" value="2" />
+                    <i class="fa fa-check hidden"></i>
+                </label>
+            </div>
+            <div class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                <label class="image-checkbox">
+                    <img class="img-responsive" src="https://dummyimage.com/600x400/000/fff" />
+                    <input type="checkbox" name="Horror" value="3" />
+                    <i class="fa fa-check hidden"></i>
+                </label>
+            </div>
+            <div class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                <label class="image-checkbox">
+                    <img class="img-responsive" src="https://dummyimage.com/600x400/000/fff" />
+                    <input type="checkbox" name="Western" value="4" />
+                    <i class="fa fa-check hidden"></i>
+                </label>
+            </div>
+            <div class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                <label class="image-checkbox">
+                    <img class="img-responsive" src="https://dummyimage.com/600x400/000/fff" />
+                    <input type="checkbox" name="Romance" value="5" />
+                    <i class="fa fa-check hidden"></i>
+                </label>
+            </div>
+            <div class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                <label class="image-checkbox">
+                    <img class="img-responsive" src="https://dummyimage.com/600x400/000/fff" />
+                    <input type="checkbox" name="Musical" value="6" />
+                    <i class="fa fa-check hidden"></i>
+                </label>
+            </div>
+            <br>
+            <button type="submit">Continue</button>
+        </form>
     </div>
-
-    <div class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
-        <label class="image-checkbox">
-            <img class="img-fluid" src="https://gracegibsonradio.com/wp-content/uploads/2016/03/comedy-drama-copy.jpg" />
-            <input type="checkbox" name="image[]" value="" />
-            <i class="fa fa-check hidden"></i>
-        </label>
-    </div>
-
-    <br>
-    <button>Continue</button>
 </div>
 <br><br>
 
@@ -115,6 +145,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script  src="{% static 'js/setup.js' %}"></script>
 
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>-->
 <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
