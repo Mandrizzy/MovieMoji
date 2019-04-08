@@ -8,3 +8,6 @@ def hello(request):
 @login_required
 def home(request):
    return render(request, "home.html", {})
+
+def setup(request):
+   return render(request, "setup.html", {})
