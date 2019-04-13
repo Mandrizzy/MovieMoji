@@ -32,6 +32,34 @@ body {
   margin-top: 200px;
 }
 
+#fh5co-hero .flexslider .slider-text > .slider-text-inner> #play{
+  background-color:rgb(5, 122, 231);
+  border-radius: 25px;
+  margin-top: 20rem;
+}
+#fh5co-hero .flexslider .slider-text > .slider-text-inner> #play> h4:hover{
+  color: white;
+}
+#fh5co-hero .flexslider .slider-text > .slider-text-inner> #play:hover {
+  
+  background-color:rgb(5, 122, 231);
+  border-radius: 50px;
+  
+}
+#fh5co-about > .row > #title, h1{
+  margin-left: 1rem;
+}
+
+#fh5co-about > .row >.col-sm-3>h4{
+  margin-top: 15px;
+}
+
+#fh5co-about > #synopsis ,.row >h4 {
+  margin-left: 1px;
+  padding-top: 10px;
+}
+
+
 
 #page {
   position: relative;
@@ -80,7 +108,7 @@ h1, h2, h3, h4, h5, h6, figure {
   color: #000;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
-  margin: 0 0 20px 0;
+  -margin: 0 0 20px 0;
 }
 
 ::-webkit-selection {
