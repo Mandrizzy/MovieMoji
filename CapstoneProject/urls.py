@@ -30,4 +30,5 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name="logout"),
     path('home/', home, name="home"),
     path('setup/', setup, name="setup"),
+    path('home/recommend/', recommend, name="recommend"),
 ]

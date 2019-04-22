@@ -66,12 +66,10 @@
 							<li class="active"><a href="reccomend.html">Recommend</a></li>
 							<li class="has-dropdown">
 								<a href="watched.html">Watched</a>
-								<!-- <ul class="dropdown">
-									<li><a href="#">Web Design</a></li>
-									<li><a href="#">eCommerce</a></li>
-									<li><a href="#">Branding</a></li>
-									<li><a href="#">API</a></li>
-								</ul> -->
+                                {% for title in movies %}
+                                    <p>{{ title }}</p>
+                                {% endfor %}
+
 							</li>
 						</ul>
 					</div>
@@ -90,7 +88,7 @@
 			   			<div class="row">
 				   			<div class="col-md-pull-6 col-md-offset-2 slider-text slider-text-bg">
 				   				<div class="slider-text-inner text-center" style="filter:none">
-									   <h1 id="reco">Recommendations</h1>
+									   <h1 id="reco" style="color: red">Recommendations</h1>
 									   
 				   				</div>
 				   			</div>
