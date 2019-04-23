@@ -36,7 +36,7 @@ def recommend(request):
         row = cursor.fetchone()
         data = recommender.get_genres(row)
         movies = recommender.get_movies(data)
-        return HttpResponse(movies)
+        #return HttpResponse(movies)
     # return HttpResponse(row)
-    # return render(request, 'reccomend.html', {'movies': movies})
+    return render(request, 'reccomend.html', {'movies': movies})
 

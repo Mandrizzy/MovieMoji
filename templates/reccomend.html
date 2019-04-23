@@ -64,13 +64,7 @@
 						<ul>
 							<li><a href="dashboard.html">Home</a></li>
 							<li class="active"><a href="reccomend.html">Recommend</a></li>
-							<li class="has-dropdown">
-								<a href="watched.html">Watched</a>
-                                {% for title in movies %}
-                                    <p>{{ title }}</p>
-                                {% endfor %}
-
-							</li>
+							<li><a href="watched.html">Watched</a></li>
 						</ul>
 					</div>
 				</div>
@@ -88,7 +82,7 @@
 			   			<div class="row">
 				   			<div class="col-md-pull-6 col-md-offset-2 slider-text slider-text-bg">
 				   				<div class="slider-text-inner text-center" style="filter:none">
-									   <h1 id="reco" style="color: red">Recommendations</h1>
+									   <h1 id="reco">Recommendations</h1>
 									   
 				   				</div>
 				   			</div>
@@ -102,10 +96,10 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box fadeInUp animated-fast">
-						<a href="#" class="blog-bg" style="background-image: url(static/img/blog-1.jpg);"></a>
+						<a href="#" class="blog-bg" style="background-image: url(http://clipart-library.com/img/453662.jpg);"></a>
 						<div class="blog-text">
 							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">Photoshoot On The Street</a></h3>
+							<h3><a href="#">{{movies.0.0}}</a></h3>
 							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
 							<ul class="stuff">
 								<li><i class="icon-heart3"></i>249</li>
@@ -117,10 +111,10 @@
 				</div>
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box fadeInUp animated-fast">
-						<a href="#" class="blog-bg" style="background-image: url(static/img/blog-2.jpg);"></a>
+						<a href="#" class="blog-bg" style="background-image: url(http://clipart-library.com/img/453662.jpg);"></a>
 						<div class="blog-text">
 							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">Surfing at Philippines</a></h3>
+							<h3><a href="#">{{movies.0.1}}</a></h3>
 							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
 							<ul class="stuff">
 								<li><i class="icon-heart3"></i>249</li>
@@ -132,10 +126,10 @@
 				</div>
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box fadeInUp animated-fast">
-						<a href="#" class="blog-bg" style="background-image: url(static/img/blog-3.jpg);"></a>
+						<a href="#" class="blog-bg" style="background-image: url(http://clipart-library.com/img/453662.jpg);"></a>
 						<div class="blog-text">
 							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">Focus On Uderwater</a></h3>
+							<h3><a href="#">{{movies.0.2}}</a></h3>
 							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
 							<ul class="stuff">
 								<li><i class="icon-heart3"></i>249</li>
@@ -147,10 +141,10 @@
 				</div>
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box fadeInUp animated-fast">
-						<a href="#" class="blog-bg" style="background-image: url(static/img/blog-1.jpg);"></a>
+						<a href="#" class="blog-bg" style="background-image: url(http://clipart-library.com/img/453662.jpg);"></a>
 						<div class="blog-text">
 							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">Photoshoot On The Street</a></h3>
+							<h3><a href="#">{{movies.1.0}}</a></h3>
 							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
 							<ul class="stuff">
 								<li><i class="icon-heart3"></i>249</li>
@@ -162,10 +156,25 @@
 				</div>
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box fadeInUp animated-fast">
-						<a href="#" class="blog-bg" style="background-image: url(static/img/blog-2.jpg);"></a>
+						<a href="#" class="blog-bg" style="background-image: url(http://clipart-library.com/img/453662.jpg);"></a>
 						<div class="blog-text">
 							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">Surfing at Philippines</a></h3>
+							<h3><a href="#">{{movies.1.1}}</a></h3>
+							<p>Far far away, behind the word mountains, far from the countries.</p>
+							<ul class="stuff">
+								<li><i class="icon-heart3"></i>249</li>
+								<li><i class="icon-eye2"></i>1,308</li>
+								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
+							</ul>
+						</div> 
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="fh5co-blog animate-box fadeInUp animated-fast">
+						<a href="#" class="blog-bg" style="background-image: url(http://clipart-library.com/img/453662.jpg);"></a>
+						<div class="blog-text">
+							<span class="posted_on">Feb. 15th 2016</span>
+							<h3><a href="#">{{movies.1.2}}</a></h3>
 							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
 							<ul class="stuff">
 								<li><i class="icon-heart3"></i>249</li>
@@ -177,10 +186,10 @@
 				</div>
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box fadeInUp animated-fast">
-						<a href="#" class="blog-bg" style="background-image: url(static/img/blog-3.jpg);"></a>
+						<a href="#" class="blog-bg" style="background-image: url(http://clipart-library.com/img/453662.jpg);"></a>
 						<div class="blog-text">
 							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">Focus On Uderwater</a></h3>
+							<h3><a href="#">{{movies.2.0}}</a></h3>
 							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
 							<ul class="stuff">
 								<li><i class="icon-heart3"></i>249</li>
@@ -190,6 +199,36 @@
 						</div> 
 					</div>
 				</div>
+				<div class="col-md-4">
+					<div class="fh5co-blog animate-box fadeInUp animated-fast">
+						<a href="#" class="blog-bg" style="background-image: url(http://clipart-library.com/img/453662.jpg);"></a>
+						<div class="blog-text">
+							<span class="posted_on">Feb. 15th 2016</span>
+							<h3><a href="#">{{movies.2.1}}</a></h3>
+							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<ul class="stuff">
+								<li><i class="icon-heart3"></i>249</li>
+								<li><i class="icon-eye2"></i>1,308</li>
+								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
+							</ul>
+						</div> 
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="fh5co-blog animate-box fadeInUp animated-fast">
+						<a href="#" class="blog-bg" style="background-image: url(http://clipart-library.com/img/453662.jpg);"></a>
+						<div class="blog-text">
+							<span class="posted_on">Feb. 15th 2016</span>
+							<h3><a href="#">{{movies.2.2}}</a></h3>
+							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<ul class="stuff">
+								<li><i class="icon-heart3"></i>249</li>
+								<li><i class="icon-eye2"></i>1,308</li>
+								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
+							</ul>
+						</div> 
+					</div>
+				</div>	
 			</div>
 		</div>
 	</div><!-- END container-wrap -->
