@@ -40,12 +40,14 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-	<!-- Modernizr JS -->
-	<script type='text/javascript' src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+    <style>
+        .slider-text-inner
+        {
+            background-image: url('https://townsquare.media/site/442/files/2016/03/o-THEATER-SEATS-facebook.jpg');
+            height: 200px;
+            width: 100%;
+        }
+    </style>
 
 	</head>
 	<body>
@@ -80,10 +82,10 @@
 			   		<div class="overlay-gradient"></div>
 			   		<div class="container-fluids">
 			   			<div class="row">
-				   			<div class="col-md-pull-6 col-md-offset-2 slider-text slider-text-bg">
+                            <div class="col-md-12 slider-text slider-text-bg">
+{#				   			<div class="col-md-pull-6 col-md-offset-2 slider-text slider-text-bg">#}
 				   				<div class="slider-text-inner text-center" style="filter:none">
 									   <h1 id="reco">Recommendations</h1>
-									   
 				   				</div>
 				   			</div>
 				   		</div>
@@ -300,6 +302,14 @@
 	<script type='text/javascript' src="{% static 'js/magnific-popup-options.js' %}"></script>
 	<!-- Main -->
 	<script type='text/javascript' src="{% static 'js/main.js' %}"></script>
+
+    <!-- Modernizr JS -->
+	<script type='text/javascript' src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
 
 	</body>
 </html>
