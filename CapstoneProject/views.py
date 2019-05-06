@@ -54,12 +54,10 @@ def watch(request):
     return HttpResponse(test)
     # return render(request, 'watching.html', {})
 
-
 @login_required
 def watching(request, title):
-    if request.method == 'GET':
-        [genre] = recommender.get_genres_from_movie_title(title)
-        year = recommender.extract_movie_year(title)
-        return render(request, 'watching.html', {'title': title, 'genre': genre, 'year': year})
-    elif request.method == 'POST':
-        return HttpResponse('yes')
+    [genre]= recommender.get_genres_from_movie_title(title)
+    year=recommender.extract_movie_year(title)
+
+    #return HttpResponse(genre)
+    return render(request,'watching.html',{'title':title,'genre':genre,'year':year})
