@@ -64,10 +64,10 @@
 					</div>
 					<div class="col-xs-10 text-right menu-1">
 						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="reccomend.html">Recommend</a></li>
-							<li><a href="watched.html">Watched</a></li>
-							<li class="active"><a href="#">Watching</a></li>
+							<li><a href="{% url 'home' %}">Home</a></li>
+							<li><a href="{% url 'recommend' %}">Recommend</a></li>
+							<li><a href="{% url 'watch' %}">Watched</a></li>
+							<li class="active"><a href="/home/watch/{{title}}">Watching</a></li>
 						</ul>
 					</div>
 				</div>
@@ -102,13 +102,13 @@
 		</aside>
 			 <div id="fh5co-about">
 				<div class="row">
-					<h1 id="title">The Avengers</h1>
+					<h1 id="title">{{title}}</h1>
 				</div>
 				<div class="row">
 					<div class="col-sm-3">
-						<h4 ><strong>Genres:</strong> Action, Sci-Fi</h4>
+						<h4 ><strong>Genres: </strong>{{genre}}</h4>
 						<h4><strong>Duration:</strong> 1h 52min</h4>
-						<h4><strong>Release:</strong> 2019</h4>
+						<h4><strong>Release:</strong> {{year}}</h4>
 					</div>
 					<div class="col-sm-3" >
 						<h4><strong>Quality:</strong>  <span class="glyphicon glyphicon-hd-video text-primary"></span></h4>
