@@ -31,6 +31,20 @@ def get_genres_from_movie_title(movieTitle):
         data = cursor.fetchone()
         return data
 
+def extract_movie_year(movieTitle):
+    start = movieTitle.find('(')
+    if start == -1:
+        # No opening bracket found. Should this be an error?
+        return ''
+    start += 1  # skip the bracket, move to the next character
+    end = movieTitle.find(')', start)
+    if end == -1:
+        # No closing bracket found after the opening bracket.
+        # Should this be an error instead?
+        return int(movieTitle[start:])
+    else:
+        return int(movieTitle[start:end])
+
 
 def if_genre_exists(x, y):
     cleaned = y.split('|')
