@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.db import connection
 from RecommendationSystem import recommender
+import json
 
 
 def index(request):
@@ -37,9 +38,10 @@ def recommend(request):
         row = cursor.fetchone()
         data = recommender.get_genres(row)
         movies = recommender.get_movies(data)
+        jsondata=json.dumps(movies)
         # return HttpResponse(movies)
     # return HttpResponse(row)
-    return render(request, 'reccomend.html', {'movies': movies})
+    return render(request, 'reccomend.html', {'movies': jsondata})
 
 
 @login_required
@@ -61,3 +63,13 @@ def watching(request, title):
 
     #return HttpResponse(genre)
     return render(request,'watching.html',{'title':title,'genre':genre,'year':year})
+
+
+@login_required
+def search(request):
+    if request.method == 'POST':
+        data=request.POST.get('search')
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT title FROM movies WHERE title like %s%", [data])
+            result=cursor.fetchall()
+    return HttpResponse(result)

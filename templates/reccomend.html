@@ -61,14 +61,23 @@
 				<div class="row">
 					<div class="col-xs-2">
 						<div id="fh5co-logo"><a href="dashboard.html">MovieMoji</a></div>
+						
 					</div>
-					<div class="col-xs-10 text-right menu-1">
+					<div class="col-xs-10 menu-1">
 						<ul>
 							<li><a href="dashboard.html">Home</a></li>
 							<li class="active"><a href="reccomend.html">Recommend</a></li>
 							<li><a href="watched.html">Watched</a></li>
+							<form action="home/watch" class="form-inline" id="form" method="POST">
+								<input style="height:40px;" type="text" name='search' id="search" placeholder="Search">
+								<button style="height:40px;" type="submit" id="btnsearch" class="btn btn-primary btn-sm">
+									<span class="glyphicon glyphicon-search"></span>
+								</button>
+							</form>
 						</ul>
 					</div>
+					
+					
 				</div>
 				
 			</div>
@@ -95,124 +104,7 @@
 		  	</div>
 		</aside>		
 		<div id="fh5co-blog">
-			<div class="row">
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box fadeInUp animated-fast">
-						<a href="#" class="blog-bg" style="background-image: url(http://clipart-library.com/img/453662.jpg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">{{movies.0.0.0}}</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><a href="/home/watch/{{movies.0.0.0}}"><button class="btn btn-primary"> Watch Now </button><i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box fadeInUp animated-fast">
-						<a href="#" class="blog-bg" style="background-image: url(http://clipart-library.com/img/453662.jpg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">{{movies.0.1.0}}</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><a href="/home/watch/{{movies.0.1.0}}"><button class="btn btn-primary"> Watch Now </button><i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box fadeInUp animated-fast">
-						<a href="#" class="blog-bg" style="background-image: url(http://clipart-library.com/img/453662.jpg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">{{movies.0.2.0}}</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><a href="/home/watch/{{movies.0.2.0}}"><button class="btn btn-primary"> Watch Now </button><i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box fadeInUp animated-fast">
-						<a href="#" class="blog-bg" style="background-image: url(http://clipart-library.com/img/453662.jpg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">{{movies.1.0.0}}</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><a href="/home/watch/{{movies.1.0.0}}"><button class="btn btn-primary"> Watch Now </button><i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box fadeInUp animated-fast">
-						<a href="#" class="blog-bg" style="background-image: url(http://clipart-library.com/img/453662.jpg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">{{movies.1.1.0}}</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries.</p>
-							<ul class="stuff">
-								<li><a href="/home/watch/{{movies.1.1.0}}"><button class="btn btn-primary"> Watch Now </button><i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box fadeInUp animated-fast">
-						<a href="#" class="blog-bg" style="background-image: url(http://clipart-library.com/img/453662.jpg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">{{movies.1.2.0}}</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><a href="/home/watch/{{movies.1.2.0}}"><button class="btn btn-primary"> Watch Now </button><i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box fadeInUp animated-fast">
-						<a href="#" class="blog-bg" style="background-image: url(http://clipart-library.com/img/453662.jpg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">{{movies.2.0.0}}</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><a href="/home/watch/{{movies.2.0.0}}"><button class="btn btn-primary"> Watch Now </button><i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box fadeInUp animated-fast">
-						<a href="#" class="blog-bg" style="background-image: url(http://clipart-library.com/img/453662.jpg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">{{movies.2.1.0}}</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><a href="/home/watch/{{movies.2.1.0}}"><button class="btn btn-primary"> Watch Now </button><i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box fadeInUp animated-fast">
-						<a href="#" class="blog-bg" style="background-image: url(http://clipart-library.com/img/453662.jpg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">{{movies.2.2.0}}</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><a href="/home/watch/{{movies.2.2.0}}"><button class="btn btn-primary"> Watch Now </button><i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>	
+			<div class="row">	
 			</div>
 		</div>
 	</div><!-- END container-wrap -->
@@ -266,6 +158,73 @@
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
 	</div>
+
+	<script type="text/javascript">
+		let movies={{movies|safe}};
+		/*
+		let myNode = document.querySelectorAll(".row")[2];
+		while (myNode.firstChild) {
+    		myNode.removeChild(myNode.firstChild);
+		}*/
+		for (let count=0;count<movies.length;count++){
+	
+				for (let count2=0;count2<movies[count].length;count2++){
+				let x =document.querySelectorAll(".row")[2];
+				let y=document.createElement("div");
+				y.classList.add("col-md-4");
+	
+				let div2=document.createElement("div");
+				div2.classList.add("fh5co-blog");
+				div2.classList.add("animate-box");
+				div2.classList.add("fadeInUp");
+				div2.classList.add("animated-fast");
+				y.appendChild(div2);
+	
+				let anode=document.createElement("a");
+				anode.classList.add("blog-bg");
+				anode.style.backgroundImage="url('http://clipart-library.com/img/453662.jpg')";
+				div2.appendChild(anode);
+	
+				let div3=document.createElement("div");
+				div3.classList.add("blog-text");
+	
+				let spnode=document.createElement("span");
+				spnode.classList.add("posted_on");
+				div3.appendChild(spnode);
+				spnode.innerText="Feb. 15th 2016";
+				div2.appendChild(div3);
+	
+				let hnode=document.createElement("h3");
+				hnode.innerText=movies[count][count2][0];
+				div3.appendChild(hnode);
+	
+				let pnode=document.createElement("p");
+				pnode.innerText="Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.";
+				div3.appendChild(pnode);
+	
+				let ulnode=document.createElement("ul");
+				ulnode.classList.add("stuff");
+				div3.appendChild(ulnode);
+	
+				let linode=document.createElement("li");
+				let a2node=document.createElement("a");
+				let bnode=document.createElement("button");
+	
+				bnode.classList.add("btn");
+				bnode.classList.add("btn-primary");
+				bnode.innerText="Watch Now";
+	
+				ulnode.appendChild(linode);
+				linode.appendChild(a2node);
+				a2node.appendChild(bnode);
+	
+				a2node.setAttribute('href',"/home/watch/"+movies[count][count2][0]);
+	
+	
+				x.appendChild(y);
+			}
+	}
+</script>	
 	
 
 	<!-- jQuery -->
