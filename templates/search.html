@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
+
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
@@ -17,14 +18,13 @@
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
-	
 	{% load static %}
 
 	<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
 	<!-- Icomoon Icon Fonts-->
@@ -60,13 +60,14 @@
 			<div class="top-menu">
 				<div class="row">
 					<div class="col-xs-2">
-						<div id="fh5co-logo"><a href="index.html">MovieMoji</a></div>
+						<div id="fh5co-logo"><a href="dashboard.html">MovieMoji</a></div>
+						
 					</div>
 					<div class="col-xs-10 menu-1">
 						<ul>
 							<li><a href="dashboard.html">Home</a></li>
 							<li><a href="reccomend.html">Recommend</a></li>
-							<li class="active"><a href="watching.html">Watching</a></li>
+							<li><a href="watched.html">Watched</a></li>
 							<form action="home/watch" class="form-inline" id="form" method="POST">
 								<input style="height:40px;" type="text" name='search' id="search" placeholder="Search">
 								<button style="height:40px;" type="submit" id="btnsearch" class="btn btn-primary btn-sm">
@@ -75,80 +76,18 @@
 							</form>
 						</ul>
 					</div>
+					
+					
 				</div>
 				
 			</div>
 		</div>
 	</nav>
-	<div class="container-wrap">
-		<aside id="fh5co-hero">
-			<div class="flexslider">
-				<ul class="slides">
-			   	<li style="background-image: url(https://i.imgur.com/LCbNUEm.jpg);">
-			   		<div class="overlay-gradient"></div>
-		   			<div class="row">
-			   			<div class="col-md-12 slider-text slider-text-bg">
-			   				<div class="slider-text-inner text-center">
-								
-								<form action="home/watch/{{title}}" method="POST">
-									<input name="watch" id="watch" type='hidden' value="{{title}}">
-									<button id="play" type="submit" class="btn btn-success btn-sm">
-									<h4><span class="glyphicon glyphicon-play">Play Movie</span></h4>
-									</button>
-								</form>
-
-								<form action="home/stop/{{title}}" method="POST">
-									<input name="stop" id="stop" type='hidden' value="{{title}}">
-									<button id="play" type="submit" class="btn btn-danger btn-sm">
-									<h4><span  class="glyphicon glyphicon-stop">Stop Watching</span></h4>
-									</button>
-								</form>
-
-								<form action="home/later/{{title}}" method="POST">
-									<input name="later" id="later" type='hidden' value="{{title}}">
-									<button id="play" type="submit" class="btn btn-warning btn-sm">
-									<h4><span  class="glyphicon glyphicon-save">Watch Later</span></h4>
-									</button>
-								</form>
-								
-			   				</div>
-			   			</div>
-			   		</div>
-			   	</li>		   	
-			  	</ul>
-		  	</div>
-		</aside>
-			 <div id="fh5co-about">
-				<div class="row">
-					<h1 id="title">{{title}}</h1>
-				</div>
-				<div class="row">
-					<div class="col-sm-3">
-						<h4 ><strong>Genres: </strong>{{genre}}</h4>
-						<h4><strong>Duration:</strong> 1h 52min</h4>
-						<h4><strong>Release:</strong> {{year}}</h4>
-					</div>
-					<div class="col-sm-3" >
-						<h4><strong>Quality:</strong>  <span class="glyphicon glyphicon-hd-video text-primary"></span></h4>
-						<h4><strong>Ratings:</strong> 
-							<span>
-								<li class="glyphicon glyphicon-star"></li>
-								<li class="glyphicon glyphicon-star"></li>
-								<li class="glyphicon glyphicon-star"></li>
-								<li class="glyphicon glyphicon-star"></li>
-								<li class="glyphicon glyphicon-star-empty"></li>
-							</span>
-						</h4>
-					</div>
-					<div class="col-sm-6" ></div>
+	<div class="container-wrap">		
+		<div id="fh5co-blog">
+			<div class="row">	
 			</div>
-			<div id="synopsis" class="row"><h4><strong>Synopsis:</strong> </h4>
-				<h4>Te evertitur scriptorem eos. Docendi accumsan cotidieque cu ius, nec cu eius consulatu. Sonet accusata vis an. 
-					Saepe labores quo at, graeci aperiam dignissim nec et. Ornatus accumsan abhorreant at per. Te evertitur scriptorem eos. Docendi accumsan cotidieque cu ius, nec cu eius consulatu. Sonet accusata vis an. 
-					Saepe labores quo at, graeci aperiam dignissim nec et. Ornatus accumsan abhorreant at per.</h4></div>
-			</div>
-		
-	
+		</div>
 	</div><!-- END container-wrap -->
 
 	<footer id="myFooter">
@@ -195,13 +134,74 @@
 				<p>© 2019 MovieMoji </p>
 			</div>
 		</footer>
-	
 	</div>
 
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
 	</div>
-	
+	<script type="text/javascript">
+	let movies={{movies|safe}};
+	for (let count=0;count<movies.length;count++){
+
+			for (let count2=0;count2<movies[count].length;count2++){
+			let x =document.querySelectorAll(".row")[1];
+			let y=document.createElement("div");
+			y.classList.add("col-md-4");
+
+			let div2=document.createElement("div");
+			div2.classList.add("fh5co-blog");
+			div2.classList.add("animate-box");
+			div2.classList.add("fadeInUp");
+			div2.classList.add("animated-fast");
+			y.appendChild(div2);
+
+			let anode=document.createElement("a");
+			anode.classList.add("blog-bg");
+			anode.style.backgroundImage="url('http://clipart-library.com/img/453662.jpg')";
+			div2.appendChild(anode);
+
+			let div3=document.createElement("div");
+			div3.classList.add("blog-text");
+
+			let spnode=document.createElement("span");
+			spnode.classList.add("posted_on");
+			div3.appendChild(spnode);
+			spnode.innerText="Feb. 15th 2016";
+			div2.appendChild(div3);
+
+			let hnode=document.createElement("h3");
+			hnode.innerText=movies[count][count2][0];
+			div3.appendChild(hnode);
+
+			let pnode=document.createElement("p");
+			pnode.innerText="Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.";
+			div3.appendChild(pnode);
+
+			let ulnode=document.createElement("ul");
+			ulnode.classList.add("stuff");
+			div3.appendChild(ulnode);
+
+			let linode=document.createElement("li");
+			let a2node=document.createElement("a");
+			let bnode=document.createElement("button");
+
+			bnode.classList.add("btn");
+			bnode.classList.add("btn-primary");
+			bnode.innerText="Watch Now";
+
+			ulnode.appendChild(linode);
+			linode.appendChild(a2node);
+			a2node.appendChild(bnode);
+
+			a2node.setAttribute('href',"/home/watch/"+movies[count][count2][0]);
+
+
+			x.appendChild(y);
+        }
+}
+
+		
+	</script>
 	<!-- jQuery -->
 	<script type='text/javascript' src="{% static 'js/jquery.min.js' %}"></script>
 	<!-- jQuery Easing -->
@@ -225,6 +225,7 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+
 
 	</body>
 </html>
