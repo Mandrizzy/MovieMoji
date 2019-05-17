@@ -29,7 +29,7 @@
 <br><br><br><br>
 
 <div class="container">
-    <h1 class="greeting">Hello, Choose Your Top 3 Genre</h1><br>
+    <h1 class="greeting">Hello, Choose Your Top 3 Genres</h1><br>
 
     <div class="container">
         <form method="POST" action="{% url 'setup' %}">
@@ -169,7 +169,16 @@
                 </div>
             </div>
 
-            <br>
+            <h1 class="greeting">Great! Now choose your age group</h1><br>
+
+            <div class="age-select" style="text-align:center", "width: 100%;">
+                <input class="radio-input" type="radio" name="age-group" value="child"> Child (Under 12 years old)<br>
+                <input class="radio-input" type="radio" name="age-group" value="adolescent"> Adolescent (13yrs. - 19yrs. old)<br>
+                <input class="radio-input" type="radio" name="age-group" value="adult"> Adult (20yrs. - 60yrs. old)<br>
+                <input class="radio-input" type="radio" name="age-group" value="elderly"> Elderly (60+ yrs. old)<br>
+            </div>
+
+            <br><br>
             <button type="submit">Continue</button>
         </form>
     </div>
@@ -177,7 +186,7 @@
 <br><br>
 
 <!--Footer-->
-<footer id="myFooter">
+{% comment %} <footer id="myFooter">
       <div class="container">
 
           <div class="row">
@@ -222,7 +231,7 @@
       <div class="footer-copyright">
           <p>© 2019 MovieMoji </p>
       </div>
-  </footer>
+  </footer> {% endcomment %}
 
 
 <!-- Bootstrap core JavaScript -->

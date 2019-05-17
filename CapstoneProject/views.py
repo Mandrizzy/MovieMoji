@@ -21,12 +21,13 @@ def setup(request):
         return render(request, "setup.html", {})
     elif request.method == 'POST':
         data = request.POST.getlist('genre')
+        age_group = request.POST.get('age-group')
         genreOne = data[0]
         genreTwo = data[1]
         genreThree = data[2]
         user = request.user.id
         with connection.cursor() as cursor:
-            cursor.execute("INSERT INTO user_preferences (user_id, genre_one_id, genre_two_id, genre_three_id) VALUES (%s, %s, %s, %s)",[user, genreOne, genreTwo, genreThree])
+            cursor.execute("INSERT INTO user_preferences (user_id, genre_one_id, genre_two_id, genre_three_id, age_group) VALUES (%s, %s, %s, %s, %s)",[user, genreOne, genreTwo, genreThree, age_group])
             cursor.close()
         return redirect('home')
 
