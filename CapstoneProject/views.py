@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.db import connection
 from RecommendationSystem import recommender
+import json
 
 
 def index(request):
@@ -23,12 +24,13 @@ def setup(request):
         return render(request, "setup.html", {})
     elif request.method == 'POST':
         data = request.POST.getlist('genre')
+        age_group = request.POST.get('age-group')
         genreOne = data[0]
         genreTwo = data[1]
         genreThree = data[2]
         user = request.user.id
         with connection.cursor() as cursor:
-            cursor.execute("INSERT INTO user_preferences (user_id, genre_one_id, genre_two_id, genre_three_id) VALUES (%s, %s, %s, %s)",[user, genreOne, genreTwo, genreThree])
+            cursor.execute("INSERT INTO user_preferences (user_id, genre_one_id, genre_two_id, genre_three_id, age_group) VALUES (%s, %s, %s, %s, %s)",[user, genreOne, genreTwo, genreThree, age_group])
             cursor.close()
         return redirect('home')
 
@@ -40,9 +42,10 @@ def recommend(request):
         row = cursor.fetchone()
         data = recommender.get_genres(row)
         movies = recommender.get_movies(data)
+        jsondata=json.dumps(movies)
         # return HttpResponse(movies)
     # return HttpResponse(row)
-    return render(request, 'reccomend.html', {'movies': movies})
+    return render(request, 'reccomend.html', {'movies': jsondata})
 
 
 @login_required
@@ -68,6 +71,7 @@ def watching(request, title):
         return render(request, 'test.html', {})
 
 
+<<<<<<< HEAD
 @login_required
 def stop(request, title):
     if request.method == 'POST':
@@ -78,3 +82,17 @@ def stop(request, title):
 def later(request, title):
     if request.method == 'POST':
         return HttpResponse('yes')
+=======
+    #return HttpResponse(genre)
+    return render(request,'watching.html',{'title':title,'genre':genre,'year':year})
+
+
+@login_required
+def search(request):
+    if request.method == 'POST':
+        data=request.POST.get('search')
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT title FROM movies WHERE title like %%s%",[data])
+            result=cursor.fetchall()
+    return HttpResponse(result)
+>>>>>>> 8a68780883352a1cf38c2e882790f726d3be8020

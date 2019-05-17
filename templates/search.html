@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MovieMoji</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+	{% load static %}
+
+	<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+	<link rel="stylesheet" href="{% static 'css/Footer-with-button-logo.css' %}">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="{% static 'css/flexslider.css' %}">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <style>
+        .slider-text-inner
+        {
+            background-image: url('https://townsquare.media/site/442/files/2016/03/o-THEATER-SEATS-facebook.jpg');
+            height: 200px;
+            width: 100%;
+        }
+    </style>
+
+	</head>
+	<body>
+		
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+	<nav class="fh5co-nav" role="navigation">
+		<div class="container-wrap">
+			<div class="top-menu">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="dashboard.html">MovieMoji</a></div>
+						
+					</div>
+					<div class="col-xs-10 menu-1">
+						<ul>
+							<li><a href="dashboard.html">Home</a></li>
+							<li><a href="reccomend.html">Recommend</a></li>
+							<li><a href="watched.html">Watched</a></li>
+							<form action="home/watch" class="form-inline" id="form" method="POST">
+								<input style="height:40px;" type="text" name='search' id="search" placeholder="Search">
+								<button style="height:40px;" type="submit" id="btnsearch" class="btn btn-primary btn-sm">
+									<span class="glyphicon glyphicon-search"></span>
+								</button>
+							</form>
+						</ul>
+					</div>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+	</nav>
+	<div class="container-wrap">		
+		<div id="fh5co-blog">
+			<div class="col-md-12 text-center"><h1>Search Results <span class="glyphicon glyphicon-search"></span></h1></div>	
+			<div class="row">	
+			</div>
+		</div>
+	</div><!-- END container-wrap -->
+
+	<footer id="myFooter">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3">
+						<h2 class="logo"><a href="#"> MovieMoji </a></h2>
+					</div>
+					<div class="col-sm-2">
+						<h5>Get started</h5>
+						<ul>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Sign up</a></li>
+							<li><a href="#">Downloads</a></li>
+						</ul>
+					</div>
+					<div class="col-sm-2">
+						<h5>About us</h5>
+						<ul>
+							<li><a href="#">Company Information</a></li>
+							<li><a href="#">Contact us</a></li>
+							<li><a href="#">Reviews</a></li>
+						</ul>
+					</div>
+					<div class="col-sm-2">
+						<h5>Support</h5>
+						<ul>
+							<li><a href="#">FAQ</a></li>
+							<li><a href="#">Help desk</a></li>
+							<li><a href="#">Forums</a></li>
+						</ul>
+					</div>
+					<div class="col-sm-3">
+						<div class="social-networks">
+							<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+							<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+							<a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+						</div>
+						<button type="button" class="btn btn-default">Contact us</button>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<p>© 2019 MovieMoji </p>
+			</div>
+		</footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	<script type="text/javascript">
+	let movies={{movies|safe}};
+	for (let count=0;count<movies.length;count++){
+
+			for (let count2=0;count2<movies[count].length;count2++){
+			let x =document.querySelectorAll(".row")[1];
+			let y=document.createElement("div");
+			y.classList.add("col-md-4");
+
+			let div2=document.createElement("div");
+			div2.classList.add("fh5co-blog");
+			div2.classList.add("animate-box");
+			div2.classList.add("fadeInUp");
+			div2.classList.add("animated-fast");
+			y.appendChild(div2);
+
+			let anode=document.createElement("a");
+			anode.classList.add("blog-bg");
+			anode.style.backgroundImage="url('http://ak.picdn.net/shutterstock/videos/943021/thumb/1.jpg')";
+			div2.appendChild(anode);
+
+			let div3=document.createElement("div");
+			div3.classList.add("blog-text");
+			
+			div2.appendChild(div3);
+
+			let hnode=document.createElement("h3");
+			hnode.innerText=movies[count][count2][0];
+			div3.appendChild(hnode);
+
+			let pnode=document.createElement("p");
+			pnode.innerText="Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.";
+			div3.appendChild(pnode);
+
+			let ulnode=document.createElement("ul");
+			ulnode.classList.add("stuff");
+			div3.appendChild(ulnode);
+
+			let linode=document.createElement("li");
+			let a2node=document.createElement("a");
+			let bnode=document.createElement("button");
+
+			bnode.classList.add("btn");
+			bnode.classList.add("btn-primary");
+			bnode.innerText="Watch Now";
+
+			ulnode.appendChild(linode);
+			linode.appendChild(a2node);
+			a2node.appendChild(bnode);
+
+			a2node.setAttribute('href',"/home/watch/"+movies[count][count2][0]);
+
+
+			x.appendChild(y);
+        }
+}
+
+		
+	</script>
+	<!-- jQuery -->
+	<script type='text/javascript' src="{% static 'js/jquery.min.js' %}"></script>
+	<!-- jQuery Easing -->
+	<script type='text/javascript' src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+	<!-- Bootstrap -->
+	<script type='text/javascript' src="{% static 'js/bootstrap.min.js' %}"></script>
+	<!-- Waypoints -->
+	<script type='text/javascript' src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+	<!-- Flexslider -->
+	<script type='text/javascript' src="{% static 'js/jquery.flexslider-min.js' %}"></script>
+	<!-- Magnific Popup -->
+	<script type='text/javascript' src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+
+	<script type='text/javascript' src="{% static 'js/magnific-popup-options.js' %}"></script>
+	<!-- Main -->
+	<script type='text/javascript' src="{% static 'js/main.js' %}"></script>
+
+    <!-- Modernizr JS -->
+	<script type='text/javascript' src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+
+	</body>
+</html>
+

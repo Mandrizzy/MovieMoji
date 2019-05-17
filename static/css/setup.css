@@ -54,7 +54,23 @@ button {
 }
 
 #myFooter{
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+# CSS for Radio Buttons
+
+input[type=radio]{
+  font-size:20px;
+  text-align:center;  
+}
+
+.age-select{
+  color:white;
+  font-size:24px;
+}
+
+.radio-input{
+  display:inline-block;
 }
