@@ -70,6 +70,6 @@ def search(request):
     if request.method == 'POST':
         data=request.POST.get('search')
         with connection.cursor() as cursor:
-            cursor.execute("SELECT title FROM movies WHERE title like %s%", [data])
+            cursor.execute("SELECT title FROM movies WHERE title like %%s%",[data])
             result=cursor.fetchall()
     return HttpResponse(result)

@@ -29,6 +29,12 @@ body {
   background-color: #343a40;
 }
 
+#fh5co-blog>.col-md-12>h1{
+  color: white;
+  margin-top: -20px;
+  margin-bottom: 50px;
+}
+
 
 #fh5co-services>.row>.col-md-12>h1{
   color: white;
@@ -723,6 +729,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 #fh5co-blog{
   background-color: #343a40;
+  padding-left: 11.4rem;
 }
 
 #fh5co-work{
