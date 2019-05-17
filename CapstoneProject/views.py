@@ -6,7 +6,10 @@ from RecommendationSystem import recommender
 
 
 def index(request):
-    return render(request, "landing.html", {})
+    if request.user.is_authenticated:
+        return render(request, "dashboard.html", {})
+    else:
+        return redirect(home)
 
 
 @login_required
@@ -54,10 +57,24 @@ def watch(request):
     return HttpResponse(test)
     # return render(request, 'watching.html', {})
 
+
 @login_required
 def watching(request, title):
-    [genre]= recommender.get_genres_from_movie_title(title)
-    year=recommender.extract_movie_year(title)
+    if request.method == 'GET':
+        [genre] = recommender.get_genres_from_movie_title(title)
+        year = recommender.extract_movie_year(title)
+        return render(request, 'watching.html', {'title': title, 'genre': genre, 'year': year})
+    elif request.method == 'POST':
+        return render(request, 'test.html', {})
 
-    #return HttpResponse(genre)
-    return render(request,'watching.html',{'title':title,'genre':genre,'year':year})
+
+@login_required
+def stop(request, title):
+    if request.method == 'POST':
+        return HttpResponse('yes')
+
+
+@login_required
+def later(request, title):
+    if request.method == 'POST':
+        return HttpResponse('yes')

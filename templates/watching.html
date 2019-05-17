@@ -85,21 +85,24 @@
 			   			<div class="col-md-12 slider-text slider-text-bg">
 			   				<div class="slider-text-inner text-center">
 								
-								<form action="home/watch/{{title}}" method="POST">
+								<form action="/home/watch/{{ title }}/" method="POST">
+                                    {% csrf_token %}
 									<input name="watch" id="watch" type='hidden' value="{{title}}">
 									<button id="play" type="submit" class="btn btn-success btn-sm">
 									<h4><span class="glyphicon glyphicon-play">Play Movie</span></h4>
 									</button>
 								</form>
 
-								<form action="home/stop/{{title}}" method="POST">
+								<form action="/home/stop/{{ title }}/" method="POST">
+                                    {% csrf_token %}
 									<input name="stop" id="stop" type='hidden' value="{{title}}">
 									<button id="play" type="submit" class="btn btn-danger btn-sm">
 									<h4><span  class="glyphicon glyphicon-stop">Stop Watching</span></h4>
 									</button>
 								</form>
 
-								<form action="home/later/{{title}}" method="POST">
+								<form action="/home/later/{{ title }}/" method="POST">
+                                    {% csrf_token %}
 									<input name="later" id="later" type='hidden' value="{{title}}">
 									<button id="play" type="submit" class="btn btn-warning btn-sm">
 									<h4><span  class="glyphicon glyphicon-save">Watch Later</span></h4>

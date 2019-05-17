@@ -32,5 +32,8 @@ urlpatterns = [
     path('setup/', setup, name="setup"),
     path('home/recommend/', recommend, name="recommend"),
     path('watch/', watch, name="watch"),
-    path('home/watch/<str:title>/', watching ,name="watching") 
+    path('home/watch/<str:title>/', watching, name="watching"),
+    path('home/stop/<str:title>/', stop, name="stop"),
+    path('home/later/<str:title>/', later, name="later"),
+
 ]
