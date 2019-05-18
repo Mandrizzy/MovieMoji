@@ -32,13 +32,8 @@ urlpatterns = [
     path('setup/', setup, name="setup"),
     path('home/recommend/', recommend, name="recommend"),
     path('watch/', watch, name="watch"),
-<<<<<<< HEAD
-    path('home/watch/<str:title>/', watching, name="watching"),
+    path('home/watch/<str:title>/', watching ,name="watching"), 
     path('home/stop/<str:title>/', stop, name="stop"),
     path('home/later/<str:title>/', later, name="later"),
-
-=======
-    path('home/watch/<str:title>/', watching ,name="watching"), 
     path('search',search,name="search")
->>>>>>> 8a68780883352a1cf38c2e882790f726d3be8020
 ]
