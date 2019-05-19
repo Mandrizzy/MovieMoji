@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.db import connection
+from users.models import movies
 from RecommendationSystem import recommender
 import json
 
@@ -70,7 +71,6 @@ def watching(request, title):
 def search(request):
     if request.method == 'POST':
         data=request.POST.get('search')
-        with connection.cursor() as cursor:
-            cursor.execute("SELECT title FROM movies WHERE title like %%s%",[data])
-            result=cursor.fetchall()
-    return HttpResponse(result)
+        result=movies.objects.filter(title__icontains=data).values()
+        result2=recommender.querySet_to_list(result) # python list return.(json-able)
+    return render(request,'search.html',{'movies':result2})
