@@ -142,9 +142,9 @@
 	</div>
 	<script type="text/javascript">
 	let movies={{movies|safe}};
+
 	for (let count=0;count<movies.length;count++){
 
-			for (let count2=0;count2<movies[count].length;count2++){
 			let x =document.querySelectorAll(".row")[1];
 			let y=document.createElement("div");
 			y.classList.add("col-md-4");
@@ -167,7 +167,7 @@
 			div2.appendChild(div3);
 
 			let hnode=document.createElement("h3");
-			hnode.innerText=movies[count][count2][0];
+			hnode.innerText=movies[count].title;
 			div3.appendChild(hnode);
 
 			let pnode=document.createElement("p");
@@ -190,11 +190,11 @@
 			linode.appendChild(a2node);
 			a2node.appendChild(bnode);
 
-			a2node.setAttribute('href',"/home/watch/"+movies[count][count2][0]);
+			a2node.setAttribute('href',"/home/watch/"+movies[count].title);
 
 
 			x.appendChild(y);
-        }
+      
 }
 
 		
