@@ -11,6 +11,7 @@ def index(request):
         return render(request, "dashboard.html", {})
     else:
         return redirect(home)
+    # return render(request, "landing.html", {})
 
 
 @login_required
@@ -71,10 +72,14 @@ def watching(request, title):
         return render(request, 'test.html', {})
 
 
-<<<<<<< HEAD
 @login_required
 def stop(request, title):
     if request.method == 'POST':
+        return HttpResponse('yes')
+
+
+def watched(request):
+    if request.method == 'GET':
         return HttpResponse('yes')
 
 
@@ -82,7 +87,6 @@ def stop(request, title):
 def later(request, title):
     if request.method == 'POST':
         return HttpResponse('yes')
-=======
     #return HttpResponse(genre)
     return render(request,'watching.html',{'title':title,'genre':genre,'year':year})
 
@@ -95,4 +99,4 @@ def search(request):
             cursor.execute("SELECT title FROM movies WHERE title like %%s%",[data])
             result=cursor.fetchall()
     return HttpResponse(result)
->>>>>>> 8a68780883352a1cf38c2e882790f726d3be8020
+

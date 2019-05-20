@@ -18,6 +18,11 @@ body {
   color: gray;
   background:#24262c;
 }
+
+#form {
+  display: flex;
+}
+
 #fh5co-hero .flexslider .slides .container-fluids .row .col-md-pull-6 .slider-text-inner #reco{
   color:white;
   font-size: 11rem;
@@ -61,7 +66,7 @@ body {
 
 .fh5co-nav>.container-wrap>.top-menu>.row>.col-xs-10>ul>#form{
   margin-left:30rem;
-  margin-top: -3rem; 
+  margin-top: -3rem;
 }
 #fh5co-hero .flexslider .slides .row .col-md-12 .slider-text-inner #reco{
   color:white;
