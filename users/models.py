@@ -13,5 +13,12 @@ class movies(models.Model):
     def __str__(self):
         return self.title
 
+
+class watched_movies(models.Model):
+    user_id = models.IntegerField(),
+    most_recently_watched = models.IntegerField(),
+    second_most_recently_watched = models.IntegerField(),
+    third_recently_watched = models.IntegerField(),
+
     
 

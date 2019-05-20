@@ -1,6 +1,13 @@
 import numpy as np
 import math
 from django.db import connection
+from django.shortcuts import render
+import json
+import re
+import datetime
+from datetime import datetime
+from django.utils import timezone
+
 
 movieGenreList = ["Action", "Adventure", "Animation", "Children", "Comedy", "Crime", "Documentary", "Drama", "Fantasy", "Film-Noir", "Horror", "Musical", "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western"]
 
@@ -13,6 +20,30 @@ def get_genres(ids):
             data = cursor.fetchone()
             genres.append(data)
         return genres
+
+
+def get_movie_title_from_id(id):
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT title FROM movies WHERE movieId = %s", [id])
+        movie_title = cursor.fetchone()
+        return movie_title[0]
+
+
+def get_movie_id_from_title(title):
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT movieId FROM movies WHERE movieId = %s", [id])
+        movie_title = cursor.fetchone()
+        return movie_title[0]
+
+
+def get_new_user_movies(request):
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT genre_one_id,genre_two_id,genre_three_id FROM user_preferences WHERE user_id = %s",[request.user.id])
+        row = cursor.fetchone()
+        data = get_genres(row)
+        movies = get_movies(data)
+        jsondata = json.dumps(movies)
+    return render(request, 'reccomend.html', {'movies': jsondata})
 
 
 def get_movies(genres):
@@ -31,6 +62,7 @@ def get_genres_from_movie_title(movieTitle):
         data = cursor.fetchone()
         return data
 
+
 def extract_movie_year(movieTitle):
     start = movieTitle.find('(')
     if start == -1:
@@ -43,7 +75,22 @@ def extract_movie_year(movieTitle):
         # Should this be an error instead?
         return int(movieTitle[start:])
     else:
-        return int(movieTitle[start:end])
+        # return int(movieTitle[start:end])
+        try:
+            return int(movieTitle[start:end])
+        except ValueError:
+            # return 'yes'
+            new_string = movieTitle.replace(movieTitle[start:end], '')
+            new_string2 = new_string.replace('()', '')
+            # return new_string2
+            return extract_movie_year(new_string2)
+
+        # return int(movieTitle[start:end])
+
+
+def extract_release_year_from_title(movieTitle):
+    release_date = re.search(r"\((\w+)\)", movieTitle)
+    return int(release_date.group(1))
 
 
 def if_genre_exists(x, y):
@@ -88,7 +135,7 @@ def generate_movie_candidates(movie_title):
         # return str1
         movie_two = create_movie_array(str1)
         try:
-            if computeGenreSimilarity(movie_one, movie_two) > 0.50:
+            if computeGenreSimilarity(movie_one, movie_two) > 0.70:
                 candidates.append(i)
             else:
                 continue
@@ -96,6 +143,33 @@ def generate_movie_candidates(movie_title):
             continue
     return candidates
 
+
+def update_watch_movie(movieTitle, user):
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT COUNT(user_id) FROM user_recently_watch_movies WHERE user_id = %s", [user])
+        count = cursor.fetchone()
+        if count[0] != 0:
+            cursor.execute("SELECT movieId FROM movies WHERE title = %s", [movieTitle])
+            row = cursor.fetchone()
+
+            cursor.execute("SELECT most_recent_movie FROM user_recently_watch_movies WHERE user_id = %s", [user])
+            movieOne = cursor.fetchone()
+
+            cursor.execute("SELECT second_most_recent_movie FROM user_recently_watch_movies WHERE user_id = %s", [user])
+            movieTwo = cursor.fetchone()
+
+            cursor.execute("UPDATE user_recently_watch_movies SET most_recent_movie = %s,"
+                           " second_most_recent_movie = %s,"
+                           " third_most_recent_movie = %s", [row[0], movieOne[0], movieTwo[0]])
+            cursor.close()
+            # return "yes check database"
+        else:
+            cursor.execute("SELECT movieId FROM movies WHERE title = %s", [movieTitle])
+            row = cursor.fetchone()
+
+            cursor.execute("INSERT INTO user_recently_watch_movies (user_id,most_recent_movie) VALUES (%s,%s)", [user, row[0]])
+            cursor.close()
+            # return "yes check database"
 
 
 def computeGenreSimilarity(movieOne, movieTwo):
@@ -114,8 +188,43 @@ def computeGenreSimilarity(movieOne, movieTwo):
     # print(result)
     return result
 
+
 def querySet_to_list(qs):
         """
         this will return python list<dict>
         """
         return [dict(q) for q in qs]
+
+
+def get_user_age(request):
+    user = request.user.id
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT DOB FROM user_preferences WHERE user_id = %s", [user])
+        data = cursor.fetchone()
+        DOB = data[0]
+        year = DOB[:4]
+        yearInt = int(year)
+        currentyear = 2019
+        return currentyear - yearInt
+
+
+def filter_candidates_by_age(candidates, user_age):
+    new_candidates = []
+    current_year = 2019
+    firstcount = len(candidates)
+    for i in candidates:
+        release_year = extract_movie_year(i[0])
+        if release_year > current_year - user_age + 12:
+            new = candidates.pop(candidates.index(i))
+            new_candidates.append(new)
+    secondcount = len(candidates)
+    # return len(new_candidates)
+    return new_candidates
+
+
+def filter_candidates_by_ratings(candidates):
+    for i in candidates:
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT rating FROM ratings_small WHERE movieId = %s",[])
+
+
