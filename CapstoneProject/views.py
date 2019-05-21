@@ -111,3 +111,16 @@ def search(request):
         result = movies.objects.filter(title__icontains=data).values()
         result2 = recommender.querySet_to_list(result) # python list return.(json-able)
     return render(request,'search.html',{'movies':result2})
+    
+
+@login_required
+def rating(request):
+    # if request.method == 'GET':
+        return render(request, "rating.html", {})
+    # elif request.method == 'POST':
+        # rating = request.POST.get('rating')
+        # user = request.user.id
+        # with connection.cursor() as cursor:
+        #     cursor.execute("INSERT INTO ratings_small (userId, rating) VALUES (%s, %s)",[user, rating])
+        #     cursor.close()
+        # return redirect('home')
