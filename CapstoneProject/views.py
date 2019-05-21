@@ -39,6 +39,7 @@ def setup(request):
 @login_required
 def recommend(request):
     user = request.user.id
+    user_age = recommender.get_user_age(request)
     with connection.cursor() as cursor:
         cursor.execute("SELECT COUNT(user_id) FROM user_recently_watch_movies WHERE user_id = %s", [user])
         count = cursor.fetchone()
@@ -47,13 +48,54 @@ def recommend(request):
             movie = cursor.fetchone()
             movie_title = recommender.get_movie_title_from_id(movie[0])
             movies_list = recommender.generate_movie_candidates(movie_title)
-            user_age = recommender.get_user_age(request)
             first_filter = recommender.filter_candidates_by_age(movies_list, user_age)
             second_filter = recommender.filter_candidates_by_ratings(first_filter)
-            jsondata = json.dumps(second_filter)
+
+            try:
+                cursor.execute("SELECT second_most_recent_movie FROM user_recently_watch_movies WHERE user_id = %s", [user])
+                movie_2 = cursor.fetchone()
+                movie_title_2 = recommender.get_movie_title_from_id(movie_2[0])
+                movies_list_2 = recommender.generate_movie_candidates(movie_title_2)
+                first_filter_2 = recommender.filter_candidates_by_age(movies_list_2, user_age)
+                second_filter_2 = recommender.filter_candidates_by_ratings(first_filter_2)
+            except TypeError:
+                top_n_candidates = second_filter[:9]
+                jsondata = json.dumps(top_n_candidates)
+                return render(request, 'reccomend.html', {'movies': jsondata})
+
+            try:
+                cursor.execute("SELECT third_most_recent_movie FROM user_recently_watch_movies WHERE user_id = %s", [user])
+                movie_3 = cursor.fetchone()
+                movie_title_3 = recommender.get_movie_title_from_id(movie_3[0])
+                movies_list_3 = recommender.generate_movie_candidates(movie_title_3)
+                first_filter_3 = recommender.filter_candidates_by_age(movies_list_3, user_age)
+                second_filter_3 = recommender.filter_candidates_by_ratings(first_filter_3)
+            except TypeError:
+                top_n_candidates = second_filter[:4]
+                top_n_candidates_2 = second_filter_2[:3]
+                new_candidates = top_n_candidates + top_n_candidates_2
+                new_candidates = list(dict.fromkeys(new_candidates))
+                jsondata = json.dumps(new_candidates)
+                return render(request, 'reccomend.html', {'movies': jsondata})
+
+            top_n_candidates = second_filter[:3]
+            top_n_candidates_2 = second_filter_2[:3]
+            top_n_candidates_3 = second_filter_3[:3]
+
+            new_candidates = top_n_candidates + top_n_candidates_2 + top_n_candidates_3
+            new_candidates = list(dict.fromkeys(new_candidates))
+
+            # if len(new_candidates) < 9:
+            #     count = 9 - len(new_candidates)
+            #     for i in range
+
+            jsondata = json.dumps(new_candidates)
+
+
+
             return render(request, 'reccomend.html', {'movies': jsondata})
         else:
-            return recommender.get_new_user_movies(request)
+            return HttpResponse(recommender.get_new_user_movies(request))
 
 
 @login_required
@@ -87,18 +129,19 @@ def stop(request, title):
         return HttpResponse('yes')
 
 
+@login_required
 def watched(request):
     if request.method == 'GET':
-        return render(request, 'watched.html', {})
-
-        # return HttpResponse('yes')
+        watched_movies = recommender.get_recently_watched_movies(request)
+        jsondata = json.dumps(watched_movies)
+        return render(request, 'watched.html', {'movies': jsondata})
 
 
 @login_required
 def later(request, title):
     if request.method == 'POST':
         return HttpResponse('yes')
-    #return HttpResponse(genre)
+    #hello
     return render(request,'watching.html',{'title':title,'genre':genre,'year':year})
 
 

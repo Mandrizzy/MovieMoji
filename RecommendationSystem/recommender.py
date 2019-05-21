@@ -3,10 +3,7 @@ import math
 from django.db import connection
 from django.shortcuts import render
 import json
-import re
-import datetime
-from datetime import datetime
-from django.utils import timezone
+
 
 
 movieGenreList = ["Action", "Adventure", "Animation", "Children", "Comedy", "Crime", "Documentary", "Drama", "Fantasy", "Film-Noir", "Horror", "Musical", "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western"]
@@ -37,13 +34,15 @@ def get_movie_id_from_title(title):
 
 
 def get_new_user_movies(request):
+    user = request.user.id
     with connection.cursor() as cursor:
-        cursor.execute("SELECT genre_one_id,genre_two_id,genre_three_id FROM user_preferences WHERE user_id = %s",[request.user.id])
+        cursor.execute("SELECT genre_one_id,genre_two_id,genre_three_id FROM user_preferences WHERE user_id = %s", [user])
         row = cursor.fetchone()
         data = get_genres(row)
         movies = get_movies(data)
         jsondata = json.dumps(movies)
-    return render(request, 'reccomend.html', {'movies': jsondata})
+        # return jsondata
+    return render(request, 'new_user_reccomend.html', {'movies': jsondata})
 
 
 def get_movies(genres):
@@ -248,5 +247,18 @@ def calculate_average_ratings(movieId):
             return 0
 
 
+def get_recently_watched_movies(request):
+    movies = []
+    count = 0
+    user = request.user.id
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT most_recent_movie, second_most_recent_movie, third_most_recent_movie FROM user_recently_watch_movies WHERE user_id = %s", [user])
+        movie_ids = cursor.fetchone()
+        for i in movie_ids:
+            # return i
+            title = get_movie_title_from_id(i)
+            count += 1
+            movies.append(title)
+    return movies
 
 
