@@ -7,9 +7,6 @@
       <change beforePath="$PROJECT_DIR$/RecommendationSystem/recommender.py" beforeDir="false" afterPath="$PROJECT_DIR$/RecommendationSystem/recommender.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/reccomend.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reccomend.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/setup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/setup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,14 +68,14 @@
           <entry key="Django Console" value="51" />
           <entry key="css" value="129" />
           <entry key="html" value="1042" />
-          <entry key="py" value="5191" />
+          <entry key="py" value="5651" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="129" />
           <entry key="HTML" value="1042" />
-          <entry key="Python" value="5237" />
+          <entry key="Python" value="5697" />
           <entry key="SQL" value="5" />
         </counts>
       </usages-collector>
@@ -101,11 +98,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CapstoneProject/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
-              <caret line="58" column="47" lean-forward="true" selection-start-line="58" selection-start-column="47" selection-end-line="58" selection-end-column="47" />
+            <state relative-caret-position="177">
+              <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
-                <marker date="1558392466753" expanded="true" signature="539:544" ph="..." />
+                <marker date="1558407445253" expanded="true" signature="539:544" ph="..." />
               </folding>
             </state>
           </provider>
@@ -146,8 +143,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/reccomend.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="577">
-              <caret line="193" column="49" selection-start-line="193" selection-start-column="49" selection-end-line="193" selection-end-column="49" />
+            <state relative-caret-position="3317">
+              <caret line="216" column="71" selection-start-line="216" selection-start-column="71" selection-end-line="216" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -155,19 +152,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RecommendationSystem/recommender.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="214" column="21" lean-forward="true" selection-start-line="214" selection-start-column="21" selection-end-line="214" selection-end-column="21" />
+            <state relative-caret-position="603">
+              <caret line="247" column="20" selection-start-line="247" selection-start-column="20" selection-end-line="247" selection-end-column="20" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-                <marker date="1558392398140" expanded="true" signature="736:1151" ph="..." />
-                <marker date="1558392398140" expanded="true" signature="960:1151" ph="..." />
-                <marker date="1558392398140" expanded="true" signature="1184:1562" ph="..." />
-                <marker date="1558392398140" expanded="true" signature="1913:1914" ph="..." />
-                <marker date="1558392398140" expanded="true" signature="2995:3091" ph="..." />
-                <marker date="1558392398140" expanded="true" signature="3117:3122" ph="..." />
-                <marker date="1558392398140" expanded="true" signature="4521:5828" ph="..." />
-                <marker date="1558392398140" expanded="true" signature="6902:6907" ph="..." />
-                <marker date="1558392398140" expanded="true" signature="7265:7422" ph="..." />
+                <marker date="1558405599469" expanded="true" signature="736:1152" ph="..." />
+                <marker date="1558405599469" expanded="true" signature="960:1152" ph="..." />
+                <marker date="1558405599469" expanded="true" signature="1185:1563" ph="..." />
+                <marker date="1558405599469" expanded="true" signature="1914:1915" ph="..." />
+                <marker date="1558405599469" expanded="true" signature="2999:3099" ph="..." />
+                <marker date="1558405599469" expanded="true" signature="3125:3130" ph="..." />
+                <marker date="1558405599469" expanded="true" signature="4529:5836" ph="..." />
+                <marker date="1558405599469" expanded="true" signature="6910:6915" ph="..." />
+                <marker date="1558405599469" expanded="true" signature="7297:7570" ph="..." />
+                <marker date="1558405599469" expanded="true" signature="7640:8046" ph="..." />
               </folding>
             </state>
           </provider>
@@ -215,8 +213,8 @@
         <option value="$PROJECT_DIR$/CapstoneProject/urls.py" />
         <option value="$PROJECT_DIR$/users/models.py" />
         <option value="$PROJECT_DIR$/users/migrations/__init__.py" />
-        <option value="$PROJECT_DIR$/templates/reccomend.html" />
         <option value="$PROJECT_DIR$/templates/setup.html" />
+        <option value="$PROJECT_DIR$/templates/reccomend.html" />
         <option value="$PROJECT_DIR$/RecommendationSystem/recommender.py" />
         <option value="$PROJECT_DIR$/CapstoneProject/views.py" />
       </list>
@@ -546,9 +544,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/watched.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/users/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -563,13 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/watching.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="115" column="32" selection-start-line="115" selection-start-column="32" selection-end-line="115" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CapstoneProject/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -580,39 +568,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/watching.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="115" column="32" selection-start-line="115" selection-start-column="32" selection-end-line="115" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/watched.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/reccomend.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="193" column="49" selection-start-line="193" selection-start-column="49" selection-end-line="193" selection-end-column="49" />
+        <state relative-caret-position="3317">
+          <caret line="216" column="71" selection-start-line="216" selection-start-column="71" selection-end-line="216" selection-end-column="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/RecommendationSystem/recommender.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="214" column="21" lean-forward="true" selection-start-line="214" selection-start-column="21" selection-end-line="214" selection-end-column="21" />
+        <state relative-caret-position="603">
+          <caret line="247" column="20" selection-start-line="247" selection-start-column="20" selection-end-line="247" selection-end-column="20" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <marker date="1558392398140" expanded="true" signature="736:1151" ph="..." />
-            <marker date="1558392398140" expanded="true" signature="960:1151" ph="..." />
-            <marker date="1558392398140" expanded="true" signature="1184:1562" ph="..." />
-            <marker date="1558392398140" expanded="true" signature="1913:1914" ph="..." />
-            <marker date="1558392398140" expanded="true" signature="2995:3091" ph="..." />
-            <marker date="1558392398140" expanded="true" signature="3117:3122" ph="..." />
-            <marker date="1558392398140" expanded="true" signature="4521:5828" ph="..." />
-            <marker date="1558392398140" expanded="true" signature="6902:6907" ph="..." />
-            <marker date="1558392398140" expanded="true" signature="7265:7422" ph="..." />
+            <marker date="1558405599469" expanded="true" signature="736:1152" ph="..." />
+            <marker date="1558405599469" expanded="true" signature="960:1152" ph="..." />
+            <marker date="1558405599469" expanded="true" signature="1185:1563" ph="..." />
+            <marker date="1558405599469" expanded="true" signature="1914:1915" ph="..." />
+            <marker date="1558405599469" expanded="true" signature="2999:3099" ph="..." />
+            <marker date="1558405599469" expanded="true" signature="3125:3130" ph="..." />
+            <marker date="1558405599469" expanded="true" signature="4529:5836" ph="..." />
+            <marker date="1558405599469" expanded="true" signature="6910:6915" ph="..." />
+            <marker date="1558405599469" expanded="true" signature="7297:7570" ph="..." />
+            <marker date="1558405599469" expanded="true" signature="7640:8046" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CapstoneProject/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="58" column="47" lean-forward="true" selection-start-line="58" selection-start-column="47" selection-end-line="58" selection-end-column="47" />
+        <state relative-caret-position="177">
+          <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
-            <marker date="1558392466753" expanded="true" signature="539:544" ph="..." />
+            <marker date="1558407445253" expanded="true" signature="539:544" ph="..." />
           </folding>
         </state>
       </provider>
