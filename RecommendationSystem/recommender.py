@@ -31,7 +31,7 @@ def get_movie_title_from_id(id):
 
 def get_movie_id_from_title(title):
     with connection.cursor() as cursor:
-        cursor.execute("SELECT movieId FROM movies WHERE movieId = %s", [id])
+        cursor.execute("SELECT movieId FROM movies WHERE title = %s", [title])
         movie_title = cursor.fetchone()
         return movie_title[0]
 
@@ -67,7 +67,7 @@ def extract_movie_year(movieTitle):
     start = movieTitle.find('(')
     if start == -1:
         # No opening bracket found. Should this be an error?
-        return ''
+        return 1900
     start += 1  # skip the bracket, move to the next character
     end = movieTitle.find(')', start)
     if end == -1:
@@ -84,13 +84,12 @@ def extract_movie_year(movieTitle):
             new_string2 = new_string.replace('()', '')
             # return new_string2
             return extract_movie_year(new_string2)
-
         # return int(movieTitle[start:end])
 
 
-def extract_release_year_from_title(movieTitle):
-    release_date = re.search(r"\((\w+)\)", movieTitle)
-    return int(release_date.group(1))
+# def extract_release_year_from_title(movieTitle):
+#     release_date = re.search(r"\((\w+)\)", movieTitle)
+#     return int(release_date.group(1))
 
 
 def if_genre_exists(x, y):
@@ -223,8 +222,31 @@ def filter_candidates_by_age(candidates, user_age):
 
 
 def filter_candidates_by_ratings(candidates):
+    new_candidates = []
     for i in candidates:
-        with connection.cursor() as cursor:
-            cursor.execute("SELECT rating FROM ratings_small WHERE movieId = %s",[])
+        movie_id = get_movie_id_from_title(i[0])
+        ratings = calculate_average_ratings(movie_id)
+        if ratings >= 3:
+            new = candidates.pop(candidates.index(i))
+            new_candidates.append(new)
+    return new_candidates
+
+
+def calculate_average_ratings(movieId):
+    rating = 0
+    count = 0
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT rating FROM ratings_small WHERE movieId = %s", [movieId])
+        ratings = cursor.fetchall()
+        for i in ratings:
+            count = count + 1
+            rating = rating + i[0]
+        try:
+            avg_ratings = int(rating / count)
+            return avg_ratings
+        except ZeroDivisionError:
+            return 0
+
+
 
 
