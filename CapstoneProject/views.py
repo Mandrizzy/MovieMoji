@@ -25,28 +25,35 @@ def setup(request):
         return render(request, "setup.html", {})
     elif request.method == 'POST':
         data = request.POST.getlist('genre')
-        age_group = request.POST.get('age-group')
+        DOB = request.POST.get('DOB')
         genreOne = data[0]
         genreTwo = data[1]
         genreThree = data[2]
         user = request.user.id
         with connection.cursor() as cursor:
-            cursor.execute("INSERT INTO user_preferences (user_id, genre_one_id, genre_two_id, genre_three_id, age_group) VALUES (%s, %s, %s, %s, %s)",[user, genreOne, genreTwo, genreThree, age_group])
+            cursor.execute("INSERT INTO user_preferences (user_id, genre_one_id, genre_two_id, genre_three_id, DOB) VALUES (%s, %s, %s, %s, %s)",[user, genreOne, genreTwo, genreThree, DOB])
             cursor.close()
         return redirect('home')
 
 
 @login_required
 def recommend(request):
+    user = request.user.id
     with connection.cursor() as cursor:
-        cursor.execute("SELECT genre_one_id,genre_two_id,genre_three_id FROM user_preferences WHERE user_id = %s", [request.user.id])
-        row = cursor.fetchone()
-        data = recommender.get_genres(row)
-        movies = recommender.get_movies(data)
-        jsondata=json.dumps(movies)
-        # return HttpResponse(movies)
-    # return HttpResponse(row)
-    return render(request, 'reccomend.html', {'movies': jsondata})
+        cursor.execute("SELECT COUNT(user_id) FROM user_recently_watch_movies WHERE user_id = %s", [user])
+        count = cursor.fetchone()
+        if count[0] != 0:
+            cursor.execute("SELECT most_recent_movie FROM user_recently_watch_movies WHERE user_id = %s", [user])
+            movie = cursor.fetchone()
+            movie_title = recommender.get_movie_title_from_id(movie[0])
+            movies_list = recommender.generate_movie_candidates(movie_title)
+            user_age = recommender.get_user_age(request)
+            first_filter = recommender.filter_candidates_by_age(movies_list, user_age)
+            second_filter = recommender.filter_candidates_by_ratings(first_filter)
+            jsondata = json.dumps(second_filter)
+            return render(request, 'reccomend.html', {'movies': jsondata})
+        else:
+            return recommender.get_new_user_movies(request)
 
 
 @login_required
@@ -69,13 +76,22 @@ def watching(request, title):
         year = recommender.extract_movie_year(title)
         return render(request, 'watching.html', {'title': title, 'genre': genre, 'year': year})
     elif request.method == 'POST':
-        return render(request, 'test.html', {})
+        user = request.user.id
+        recommender.update_watch_movie(title, user)
+        return redirect('home')
 
 
 @login_required
 def stop(request, title):
     if request.method == 'POST':
         return HttpResponse('yes')
+
+
+def watched(request):
+    if request.method == 'GET':
+        return render(request, 'watched.html', {})
+
+        # return HttpResponse('yes')
 
 
 @login_required
@@ -89,7 +105,20 @@ def later(request, title):
 @login_required
 def search(request):
     if request.method == 'POST':
-        data=request.POST.get('search')
-        result=movies.objects.filter(title__icontains=data).values()
-        result2=recommender.querySet_to_list(result) # python list return.(json-able)
+        data = request.POST.get('search')
+        result = movies.objects.filter(title__icontains=data).values()
+        result2 = recommender.querySet_to_list(result) # python list return.(json-able)
     return render(request,'search.html',{'movies':result2})
+    
+
+@login_required
+def rating(request):
+    # if request.method == 'GET':
+        return render(request, "rating.html", {})
+    # elif request.method == 'POST':
+        # rating = request.POST.get('rating')
+        # user = request.user.id
+        # with connection.cursor() as cursor:
+        #     cursor.execute("INSERT INTO ratings_small (userId, rating) VALUES (%s, %s)",[user, rating])
+        #     cursor.close()
+        # return redirect('home')
