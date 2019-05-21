@@ -25,6 +25,20 @@ body {
   margin-top: 200px;
 }
 
+#fh5co-about,.vid_info{
+  background-color: #343a40;
+  color: white;
+}
+#fh5co-about>.row>#title{
+  color:white;
+}
+#fh5co-about>.row>.col-sm-3>h4{
+  color: white;
+}
+#fh5co-about>#synopsis>h4{
+  color: white;
+}
+
 #fh5co-services{
   background-color: #343a40;
 }
