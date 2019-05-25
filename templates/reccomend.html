@@ -90,7 +90,6 @@
 			   		<div class="container-fluids">
 			   			<div class="row">
                             <div class="col-md-12 slider-text slider-text-bg">
-{#				   			<div class="col-md-pull-6 col-md-offset-2 slider-text slider-text-bg">#}
 				   				<div class="slider-text-inner text-center" style="filter:none">
 									   <h1 id="reco">Recommendations</h1>
 				   				</div>
@@ -159,11 +158,7 @@
 
 	<script type="text/javascript">
 		let movies={{movies|safe}};
-		/*
-		let myNode = document.querySelectorAll(".row")[2];
-		while (myNode.firstChild) {
-    		myNode.removeChild(myNode.firstChild);
-		}*/
+
 		for (let count=0;count<movies.length;count++){
 	
 				for (let count2=0;count2<movies[count].length;count2++){

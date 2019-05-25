@@ -23,7 +23,6 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # url(r'^$', hello, name='index'),
     url(r'^$', index, name='index'),
     path('register/', user_views.register, name="register"),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name="login"),
@@ -34,12 +33,11 @@ urlpatterns = [
     path('watch/', watch, name="watch"),
 
     path('home/watch/<str:title>/', watching, name="watching"),
-    path('rating/', rating, name="rating"),
+    path('home/rating/<str:title>/', rating, name="rating"),
     path('home/stop/<str:title>/', stop, name="stop"),
     path('home/later/<str:title>/', later, name="later"),
     path('home/watched/', watched, name="watched"),
 
-    # path('home/watch/<str:title>/', watching, name="watching"),
     path('search', search, name="search")
 
 ]

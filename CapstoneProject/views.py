@@ -120,13 +120,13 @@ def watching(request, title):
     elif request.method == 'POST':
         user = request.user.id
         recommender.update_watch_movie(title, user)
-        return redirect('home')
+        return redirect('rating', title=title)
 
 
 @login_required
 def stop(request, title):
     if request.method == 'POST':
-        return HttpResponse('yes')
+        return redirect('rating', title=title)
 
 
 @login_required
@@ -140,9 +140,11 @@ def watched(request):
 @login_required
 def later(request, title):
     if request.method == 'POST':
-        return HttpResponse('yes')
-    #hello
-    return render(request,'watching.html',{'title':title,'genre':genre,'year':year})
+        user = request.user.id
+        recommender.update_watch_movie(title, user)
+        return redirect('home')
+    elif request.method == 'GET':
+        return render(request,'watching.html',{'title':title,'genre':genre,'year':year})
 
 
 @login_required
@@ -155,13 +157,14 @@ def search(request):
     
 
 @login_required
-def rating(request):
-    # if request.method == 'GET':
-        return render(request, "rating.html", {})
-    # elif request.method == 'POST':
-        # rating = request.POST.get('rating')
-        # user = request.user.id
-        # with connection.cursor() as cursor:
-        #     cursor.execute("INSERT INTO ratings_small (userId, rating) VALUES (%s, %s)",[user, rating])
-        #     cursor.close()
-        # return redirect('home')
+def rating(request, title):
+    if request.method == 'GET':
+        return render(request, "rating.html", {'title': title})
+    elif request.method == 'POST':
+        rating = request.POST.get('rating')
+        user = request.user.id
+        movie_id = recommender.get_movie_id_from_title(title)
+        with connection.cursor() as cursor:
+            cursor.execute("INSERT INTO ratings_small (userId, movieId, rating) VALUES (%s, %s, %s)",[user, movie_id, int(rating)])
+            cursor.close()
+        return redirect('home')
